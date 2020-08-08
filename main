@@ -1,0 +1,161 @@
+#include <stdio.h>
+#include <stdlib.h>		//bibliotecas 
+#include <locale.h>
+
+int main() {
+
+	setlocale(LC_ALL, "portuguese");	//Acentuação
+
+	int lanche, qtd_p[7] = { 0, 0, 0, 0, 0, 0, 0 }, qtd_p1[7] = { 0, 0, 0, 0, 0, 0, 0 };	//Variaveis do tipo inteiras 
+	double precos[7] = { 5.00, 8.79, 9.99, 6.89, 4.80, 3.49, 4.99 };	//variaveis do tipo double 
+	double pagamento = 0 , pedidos[7] = { 0, 0, 0, 0, 0, 0, 0 };//variaveis do tipo double 
+
+	printf("\t\t\t\t\t\t\tGabriel M C Moreira - RU: 3329252\n");
+
+	printf("             ~~Menu da lancheria~~\n\n");
+	printf("    Item  Cód    Produto            Valor\n");
+	printf("      1   100    Cachorro-quente    5,00 \n");
+	printf("      2   101    X salada           8,79 \n");
+	printf("      3   102    X bacon            9,99 \n ");			//MENU 
+	printf("     4   103    Misto              6,89 \n ");
+	printf("     5   104    Salada             4,80 \n ");
+	printf("     6   105    Água               3,49 \n ");
+	printf("     7   106    Refrigerante       4,99  \n\n");
+
+	printf("Para selecionar seu pedido, insira o número referente ao produto. (1 a 7) \n\n ");
+	printf("Para finalizar o pedido pressione 0. \n\n ");
+	scanf_s("%i", &lanche);
+
+
+	while (1) {	// laço de repetição 		
+
+		switch (lanche) {		//Opção dos pedidos 
+
+		case 1:
+			printf(" Cachorro-Quente selecionado.\n");
+			printf(" Quantos cachorro-quente deseja?\n");
+			scanf_s("%i", &qtd_p[0]); //Pega o dado inserido e guarda na variavel qtd_p
+
+			qtd_p1[0] = qtd_p[0] + qtd_p1[0];
+			pedidos[0] = pedidos[0] + qtd_p1[0] * precos[0];	// Pega a quantidade e multiplica pelo preço o resultado da conta é colocado na variavel pedidos.
+
+			break;
+
+		case 2:
+			printf(" X-salada selecionado.\n");
+			printf(" Quantos x salada deseja?\n");
+			scanf_s("%i", &qtd_p[1]);
+
+			qtd_p1[1] = qtd_p[1] + qtd_p1[1];
+			pedidos[1] = pedidos[1] + qtd_p[1] * precos[1];
+
+			break;
+
+		case 3:
+			printf(" X-bacon selecionado.\n");
+			printf(" Quantos x bacon deseja?\n");
+			scanf_s("%i", &qtd_p[2]);
+
+			qtd_p1[2] = qtd_p[2] + qtd_p1[2];
+			pedidos[2] = pedidos[2] + qtd_p[2] * precos[2];
+
+			break;
+
+		case 4:
+			printf(" Misto selecionado.\n");
+			printf(" Quantos Misto deseja?\n");
+			scanf_s("%i", &qtd_p[3]);
+
+			qtd_p1[3] = qtd_p[3] + qtd_p1[3];
+			pedidos[3] = pedidos[3] + qtd_p[3] * precos[3];
+
+			break;
+
+		case 5:
+			printf(" Salada selecionado.\n");
+			printf(" Quantos salada deseja?\n");
+			scanf_s("%i", &qtd_p[4]);
+
+			qtd_p1[4] = qtd_p[4] + qtd_p1[4];
+			pedidos[4] = pedidos[4] + qtd_p[4] * precos[4];
+
+			break;
+
+		case 6:
+			printf(" Água selecionado.\n");
+			printf(" Quantas Águas deseja?\n");
+			scanf_s("%i", &qtd_p[5]);
+
+			qtd_p1[5] = qtd_p[5] + qtd_p1[5];
+			pedidos[5] = pedidos[5] + qtd_p[5] * precos[5];
+
+			break;
+
+		case 7:
+			printf(" Refrigerante selecionado. \n");
+			printf(" Quantos Refrigerantes deseja?\n");
+			scanf_s("%i\n", &qtd_p[6]);
+
+			qtd_p1[6] = qtd_p[6] + qtd_p1[6];
+			pedidos[6] = pedidos[6] + qtd_p[6] * precos[6];
+
+			break;
+
+		case 0:	//Ao pressionar 0 encerra o pedido e apresenta a nota fiscal
+
+			printf("*************************************************************\n");
+			printf("************************Nota fiscal**************************\n");	//Apresentação da NOTA FISCAL
+			printf("*************************************************************\n");
+
+			printf("|Item: \t\t        |Quantidade: \t\t |Preço:    * \n");
+
+			if (qtd_p1[0] > 0)		// SE a quantidade do pedido [0] a [6] for maior que 0 imprime a mensagem.
+			{
+				printf("|Cachorro-Quente:\t|%i \t\t\t |%.2f      *\n", qtd_p1[0], precos[0]);
+			}
+			if (qtd_p1[1] > 0)
+			{
+				printf("|X-Salada: \t\t|%i \t\t\t |%.2f      *\n", qtd_p1[1], precos[1]);
+			}
+			if (qtd_p1[2] > 0)
+			{
+				printf("|X-Bacon: \t\t|%i \t\t\t |%.2f      *\n", qtd_p1[2], precos[2]);
+			}
+			if (qtd_p1[3] > 0)
+			{
+				printf("|Misto: \t\t|%i \t\t\t |%.2f      *\n", qtd_p1[3], precos[3]);
+			}
+			if (qtd_p1[4] > 0)
+			{
+				printf("|Salada: \t\t|%i \t\t\t |%.2f      *\n", qtd_p1[4], precos[4]);
+			}
+			if (qtd_p1[5] > 0)
+			{
+				printf("|Água: \t\t\t|%i \t\t\t |%.2f      *\n", qtd_p1[5], precos[5]);
+			}
+			if (qtd_p1[6] > 0)
+			{
+				printf("|Refrigerante: \t\t|%i \t\t\t |%.2f      *\n", qtd_p1[6], precos[6]);
+			}
+
+			pagamento = pedidos[0] + pedidos[1] + pedidos[2] + pedidos[3] + pedidos[4] + pedidos[5] + pedidos[6];
+
+			printf("\n");
+			printf("|Total: \t\t\t\t\t |%.2f     *\n", pagamento);
+			printf("*************************************************************\n");
+
+			return 0;
+
+		default: printf("Número inválido!\n\n"); // Caso o usuario digite um numero fora dos pedidos aparecerá está mensagem
+
+			break;
+
+		}
+
+		printf("Se desejar algo a mais digite selecione o pedido pressionando os números de 1 a 7 \n\n ");
+		printf("Caso contrário para finalizar o pedido pressione 0. \n\n ");		//para interromper o laço de repetição
+		scanf_s("%i", &lanche);
+
+
+	}
+}
