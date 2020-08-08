@@ -1,0 +1,2 @@
+# Menu-lancheria
+Um menu que contém 7 opções. O usuário consegue solicitar o pedido digitando um número de 1 à 7, logo após irá aparecer uma mensagem pedindo para que o cliente informe quantas unidades deseja. Feito isso o usuário tem duas opções, 1° realizar outro pedido e 2° finalizar o pedido. Ao finalizar irá aparecer uma "nota fiscal" contendo os pedidos, as unidades e seus respectivos preços e o preço total a pagar.
